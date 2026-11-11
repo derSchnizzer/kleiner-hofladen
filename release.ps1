@@ -1,4 +1,4 @@
-# Veröffentlicht die gebaute Version als Update auf GitHub.
+﻿# Veröffentlicht die gebaute Version als Update auf GitHub.
 # Vorher: build.ps1 ausführen. Danach finden alle installierten Apps das Update beim nächsten Start.
 param([string]$Notes = "Neue Version von Kleiner Hofladen")
 $ErrorActionPreference = 'Stop'

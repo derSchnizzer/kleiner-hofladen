@@ -1,4 +1,4 @@
-# Baut die Windows-App "Kleiner Hofladen".
+﻿# Baut die Windows-App "Kleiner Hofladen".
 # 1) Spieldatei offline-fähig nach web\ kopieren (Three.js und Schriften lokal)
 # 2) App + Installationsprogramm bauen und für Updates unterschreiben
 # Ergebnis: dist\Kleiner-Hofladen_<Version>_x64-setup.exe (+ .sig)
