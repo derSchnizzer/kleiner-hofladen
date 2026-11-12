@@ -1,6 +1,6 @@
 [package]
 name = "kleiner-hofladen"
-version = "15.0.1"
+version = "16.0.0"
 description = "Kleiner Hofladen als Windows-App"
 edition = "2021"
 
