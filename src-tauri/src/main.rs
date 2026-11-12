@@ -90,6 +90,18 @@ fn app_exit(app: AppHandle) {
     app.exit(0);
 }
 
+/// Vollbild ein/aus (on = None: umschalten). Gibt den neuen Zustand zurück.
+#[tauri::command]
+fn set_fullscreen(app: AppHandle, on: Option<bool>) -> Result<bool, String> {
+    let w = app.get_webview_window("main").ok_or("Fenster nicht gefunden")?;
+    let now = w.is_fullscreen().map_err(|e| e.to_string())?;
+    let want = on.unwrap_or(!now);
+    if want != now {
+        w.set_fullscreen(want).map_err(|e| e.to_string())?;
+    }
+    Ok(want)
+}
+
 #[derive(serde::Serialize)]
 struct UpdateInfo {
     version: String,
@@ -132,7 +144,7 @@ fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_updater::Builder::new().build())
         .invoke_handler(tauri::generate_handler![
-            save_slot, load_slots, delete_slot, save_export, app_version, app_exit, check_update, install_update
+            save_slot, load_slots, delete_slot, save_export, app_version, app_exit, check_update, install_update, set_fullscreen
         ])
         .on_window_event(|window, event| {
             if let WindowEvent::CloseRequested { api, .. } = event {
