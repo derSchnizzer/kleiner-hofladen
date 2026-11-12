@@ -1768,7 +1768,7 @@ dependencies = [
 
 [[package]]
 name = "kleiner-hofladen"
-version = "14.0.1"
+version = "15.0.0"
 dependencies = [
  "serde",
  "serde_json",
